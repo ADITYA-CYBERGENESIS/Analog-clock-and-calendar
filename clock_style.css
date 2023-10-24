@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@500&display=swap');
+:root{
+    --degree-seconds:0deg;
+    --degreeend-seconds:calc(var(--degree-seconds) + 360deg);
+    --degree-minutes:0deg;
+    --degreeend-minutes:calc(var(--degree-minutes) + 360deg);
+    --degree-hours:0deg;
+    --degreeend-hours:calc(var(--degree-hours) + 360deg);
+    --clock-border-color:rgb(6, 63, 186);
+    --seconds-hand-color:rgb(4, 120, 244);
+    --minute-hand-color:rgb(5, 92, 233);
+    --hour-hand-color:rgb(8, 76, 223);
+    --clock-dot-color: radial-gradient(rgb(4, 120, 244),rgb(5, 92, 233),rgb(8, 76, 223));
+    --clock-time-numbers-color:rgb(255, 255, 255);
+    --time-and-date-bar-color:rgb(255, 255, 255);
+    --time-and-date-bar-bgcolor: rgb(6, 63, 186);
+    --calendar-box-date-marker-bgcolor:rgb(6, 63, 186);
+    --container-bgcolor: rgba(2, 109, 158, 0.688);
+
+}
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Playpen Sans', cursive;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.background_video{
+    position: absolute;
+    z-index: -1;
+}
+.opacity_02{
+    opacity: 0.2;
+    z-index: 2;
+}
+
+.container {
+    border-radius: 20px;
+    background:var(--container-bgcolor);
+    
+}
+.inside_container-holder{
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1vw;
+}
+.inside_container {
+    display: flex;
+    gap: 1vw;
+    padding: 1.5vw;
+    align-items: center;
+}
+
+.clock {
+    width: 350px;
+    height: 350px;
+    border: 10px solid var(--clock-border-color);
+    border-radius: 50%;
+    position: relative;
+    margin: 0 20px 0 0;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.hour-dot {
+    position: relative;
+    top: -1012px;
+  left: 155px;
+    width: 20px;
+    height: 20px;
+    background: var(--clock-dot-color);
+    border-radius: 50%;
+
+}
+
+.hour-1 {
+    position: relative;
+    top: 19px;
+    left: 227px;
+    color:var(--clock-time-numbers-color);
+}
+
+.hour-2 {
+
+    position: relative;
+    top: 21px;
+    left: 276px;
+    color:var(--clock-time-numbers-color);
+
+
+}
+
+.hour-3 {
+    position: relative;
+    top: 42px;
+    left: 294px;
+    color:var(--clock-time-numbers-color);
+
+}
+
+.hour-4 {
+    position: relative;
+    top: 63px;
+    color:var(--clock-time-numbers-color);
+    left: 276px;
+}
+
+.hour-5 {
+    position: relative;
+    top: 66px;
+    color:var(--clock-time-numbers-color);
+    left: 226px;
+}
+
+.hour-6 {
+    position: relative;
+    top: 35px;
+    color:var(--clock-time-numbers-color);
+    left: 155px;
+}
+
+.hour-7 {
+    position: relative;
+    top: -33px;
+    color:var(--clock-time-numbers-color);
+    left: 88px;
+}
+
+.hour-8 {
+    position: relative;
+    top: -133px;
+    color:var(--clock-time-numbers-color);
+    left: 35px;
+}
+
+.hour-9 {
+    position: relative;
+    top: -251px;
+    color:var(--clock-time-numbers-color);
+    left: 17px;
+}
+
+.hour-10 {
+    position: relative;
+    top: -369px;
+    color:var(--clock-time-numbers-color);
+    left: 27px;
+}
+
+.hour-11 {
+    position: relative;
+    top: -468px;
+    color:var(--clock-time-numbers-color);
+    left: 82px;
+}
+
+.hour-12 {
+    position: relative;
+    top: -535px;
+    color:var(--clock-time-numbers-color);
+    left: 147px;
+}
+
+.hour_hand-holder {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 160px;
+    top: -502px;
+    width: 12px;
+    left: 159.57px;
+    animation: rotatehours 86400s linear 0s infinite;
+}
+
+.hour_hand-top {
+    position: relative;
+    width: 0px;
+    border-left: 6px solid transparent;
+    border-bottom: 56px solid var(--hour-hand-color);
+    border-right: 6px solid transparent;
+}
+
+.hour_hand-bottom {
+    position: relative;
+    width: 0px;
+    border-left: 6px solid transparent;
+    border-top: 24px solid var(--hour-hand-color);
+    border-right: 6px solid transparent;
+
+}
+
+.minute_hand-holder {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 190px;
+    top: -678px;
+    width: 8px;
+    left: 160.6px;
+    animation: rotateminutes 3600s linear 0s infinite;
+}
+
+.minute_hand-top {
+    position: relative;
+    width: 0px;
+    border-left: 4px solid transparent;
+    border-bottom: 66.5px solid var(--minute-hand-color);
+    border-right: 4px solid transparent;
+
+}
+
+.minute_hand-bottom {
+    position: relative;
+    width: 0px;
+    border-left: 4px solid transparent;
+    border-top: 28.5px solid var(--minute-hand-color);
+    border-right: 4px solid transparent;
+
+}
+
+.seconds_hand-holder {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 230px;
+  top: -889px;
+  width: 5px;
+  left: 162.7px;
+  animation: rotateseconds 60s linear 0s infinite;
+}
+
+.seconds_hand-top {
+    position: relative;
+    width: 0px;
+    border-left: 2.5px solid transparent;
+    border-bottom: 80.5px solid var(--seconds-hand-color);
+    border-right: 2.5px solid transparent;
+}
+
+.seconds_hand-bottom {
+    position: relative;
+    width: 0px;
+    border-left: 2.5px solid transparent;
+    border-top: 34.5px solid var(--seconds-hand-color);
+    border-right: 2.5px solid transparent;
+}
+
+.calendar {
+    width: 301px;
+    color: white;
+}
+
+.monthandyear {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+    background:var(--time-and-date-bar-bgcolor);
+    padding: 10px 5px;
+    border-radius: 5px;
+    opacity: 0.8;
+
+}
+
+.week {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px 0;
+
+}
+
+.weekdays {
+    width: 43px;
+    text-align: center;
+}
+
+.calendar_dates {
+    width: 100%;
+
+}
+
+.calendar_box {
+    display: inline-flex;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+p {
+    position: fixed;
+}
+.inside_container-2{
+    display: flex;
+    justify-content: space-between;
+width: 95%;
+font-size: 2.5rem;
+gap:1vw;
+margin: auto;
+
+}
+.time,.date{
+    width: 100%;
+    background:var(--time-and-date-bar-bgcolor);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    color: var(--time-and-date-bar-color);
+}
+.hidden {
+    display: none;
+}
+.calendar_box-background{
+    background: var(--calendar-box-date-marker-bgcolor);
+}
+
+
+@media screen and (max-width: 500px) {
+    .background_video{
+        position: absolute;
+        height: 150vh;
+    }
+    .inside_container{
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .clock {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+        font-size: 1.5rem;
+        margin: 0 0 20px 0;
+
+    }
+
+    .hour-dot {
+        position: relative;
+        top: -868px;
+    left: 107px;
+        background: var(--clock-dot-color);
+        border-radius: 50%;
+    }
+
+    .hour-1 {
+        position: relative;
+        top: 12px;
+        left: 158px;
+    }
+
+    .hour-2 {
+
+        position: relative;
+        top: 10px;
+        left: 193px;
+    }
+
+    .hour-3 {
+        position: relative;
+        top: 23px;
+        left: 206px;
+    }
+
+    .hour-4 {
+        position: relative;
+        top: 36px;
+        left: 193px;
+    }
+
+    .hour-5 {
+        position: relative;
+        top: 36px;
+        left: 156px;
+    }
+
+    .hour-6 {
+        position: relative;
+        top: 13px;
+        left: 107px;
+    }
+
+    .hour-7 {
+        position: relative;
+        top: -37px;
+        left: 61px;
+    }
+
+    .hour-8 {
+        position: relative;
+        top: -107px;
+        left: 25px;
+    }
+
+    .hour-9 {
+        position: relative;
+        top: -192px;
+        left: 12px;
+    }
+
+    .hour-10 {
+        position: relative;
+        top: -277px;
+        left: 18px;
+    }
+
+    .hour-11 {
+        position: relative;
+        top: -348px;
+        left: 57px;
+    }
+
+    .hour-12 {
+        position: relative;
+        top: -398px;
+        left: 103px;
+    }
+    .hour_hand-holder{
+        top: -396px;
+  left: 111px;
+    }
+    .minute_hand-holder{
+        top: -572px;
+        left: 112px;
+      
+    }
+    .seconds_hand-holder{
+        top: -761px;
+        left: 113.7px;
+        height: 190px;
+      
+    }
+    .seconds_hand-top {
+        border-bottom: 60.5px solid var(--seconds-hand-color);
+    }
+    .inside_container-2{
+        display: none;
+    }
+
+}
+@keyframes rotateseconds{
+    0%{
+        rotate: var(--degree-seconds);
+    }
+    100%{
+        rotate: var(--degreeend-seconds);
+    }
+}
+@keyframes rotateminutes{
+    0%{
+        rotate: var(--degree-minutes);
+    }
+    100%{
+        rotate: var(--degreeend-minutes);
+    }
+}
+@keyframes rotatehours{
+    0%{
+        rotate: var(--degree-hours);
+    }
+    100%{
+        rotate: var(--degreeend-hours);
+    }
+}
